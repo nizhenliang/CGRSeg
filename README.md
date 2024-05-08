@@ -1,12 +1,9 @@
-## Paper: Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
+## Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
 > Authors: Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
 ## The overall architecture of CGRSeg
 
-![](E:\项目文件\轻量化分割模型预研\github\CGRSeg.PNG)
-
 The overall architecture of CGRSeg. The Rectangular Self-Calibration Module (RCM) is designed for spatial feature reconstruction and pyramid context extraction. 
-
 The rectangular self-calibration attention (RCA) explicitly models the rectangular region and calibrates the attention shape. The Dynamic Prototype Guided (DPG) head
 is proposed to improve the classification of the foreground objects via explicit class embedding.
 
