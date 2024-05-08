@@ -16,9 +16,9 @@ is proposed to improve the classification of the foreground objects via explicit
 
 | Method         | mIoU | Flops(G) | Param(M) | Throughputs(img/s) |
 |:--------------:|:----:|:--------:|:--------:|:------------------:|
-| CGRSeg-T(Ours) | 43.6 | 4.0      | 9.4      | 138.4              |
-| CGRSeg-B(Ours) | 45.5 | 7.6      | 18.1     | 98.4               |
-| CGRSeg-L(Ours) | 48.3 | 14.9     | 35.7     | 73.0               |
+| CGRSeg-T | 43.6 | 4.0      | 9.4      | 138.4              |
+| CGRSeg-B | 45.5 | 7.6      | 18.1     | 98.4               |
+| CGRSeg-L | 48.3 | 14.9     | 35.7     | 73.0               |
 
 COCO-Stuff-10k
 
