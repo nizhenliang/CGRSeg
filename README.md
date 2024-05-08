@@ -1,6 +1,4 @@
-## Paper
-
-> Title: Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation [arxiv]
+## Paper: Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
 > Authors: Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
 ## The overall architecture of CGRSeg
