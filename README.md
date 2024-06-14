@@ -4,7 +4,7 @@
 > [arXiv:2405.06228](https://arxiv.org/abs/2405.06228)
 
 ## The overall architecture of CGRSeg
-
+<img width="430" alt="cgrseg" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/c231f8fd-c8b3-4f44-973b-5f4061d75c10">
 The overall architecture of CGRSeg. The Rectangular Self-Calibration Module (RCM) is designed for spatial feature reconstruction and pyramid context extraction. 
 The rectangular self-calibration attention (RCA) explicitly models the rectangular region and calibrates the attention shape. The Dynamic Prototype Guided (DPG) head
 is proposed to improve the classification of the foreground objects via explicit class embedding.
