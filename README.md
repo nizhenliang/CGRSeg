@@ -2,16 +2,19 @@
 
 Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
-[[arXiv]](https://arxiv.org/abs/2405.06228)
+## 🔥 Updates
+* **2024/05/10**: Codes of CGRSeg are released in [Pytorch](https://github.com/nizhenliang/CGRSeg/) and paper in [[arXiv]](https://arxiv.org/abs/2405.06228).
 
-## Overview
+## 📸 Overview
 <img width="784" alt="cgrseg2" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/eef8c502-599d-48aa-b05b-51a682ac7456">
 
 The overall architecture of CGRSeg. The Rectangular Self-Calibration Module (RCM) is designed for spatial feature reconstruction and pyramid context extraction. 
 The rectangular self-calibration attention (RCA) explicitly models the rectangular region and calibrates the attention shape. The Dynamic Prototype Guided (DPG) head
 is proposed to improve the classification of the foreground objects via explicit class embedding.
 
-## Results
+<img width="731" alt="flops" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/2bdf4e0c-d4a7-4b83-b091-394d1ee0afaa">
+
+##  1️⃣ Results
 
 #### ADE20K
 
@@ -25,7 +28,7 @@ Pascal Context
 
 <img width="481" alt="pc" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/d0b3f524-523f-4fc3-a809-691f4617ebb4">
 
-## Environment
+##  2️⃣ Requirements
 
 - ```shell
   conda create --name ssa python=3.8 -y
@@ -39,7 +42,7 @@ Pascal Context
   
   CGRSeg is built based on [mmsegmentation-0.27.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.27.0), which can be referenced for data preparation.
 
-## Training & Testing
+## 3️⃣ Training & Testing
 
 - Train
   
@@ -60,3 +63,14 @@ Pascal Context
   # Multi-gpu (4-gpu) testing
   bash dist_test.sh local_configs/cgrseg/cgrseg-t_ade20k_160k.py ${CHECKPOINT_FILE} 4 --eval mIoU
   ```
+  
+## ✏️ Reference
+If you find CGRSeg useful in your research or applications, please consider giving a star ⭐ and citing using the following BibTeX:
+```
+@article{ni2024context,
+  title={Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation},
+  author={Ni, Zhenliang and Chen, Xinghao and Zhai, Yingjie and Tang, Yehui and Wang, Yunhe},
+  journal={arXiv preprint arXiv:2405.06228},
+  year={2024}
+}
+```
