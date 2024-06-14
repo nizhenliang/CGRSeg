@@ -1,9 +1,10 @@
 ## Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
-> Authors: Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
-> 
-> [arXiv:2405.06228](https://arxiv.org/abs/2405.06228)
 
-## The overall architecture of CGRSeg
+Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
+
+[[arXiv]](https://arxiv.org/abs/2405.06228)
+
+## Overview
 <img width="784" alt="cgrseg2" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/eef8c502-599d-48aa-b05b-51a682ac7456">
 
 The overall architecture of CGRSeg. The Rectangular Self-Calibration Module (RCM) is designed for spatial feature reconstruction and pyramid context extraction. 
