@@ -4,7 +4,8 @@
 > [arXiv:2405.06228](https://arxiv.org/abs/2405.06228)
 
 ## The overall architecture of CGRSeg
-<img width="430" alt="cgrseg" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/c231f8fd-c8b3-4f44-973b-5f4061d75c10">
+<img width="784" alt="cgrseg2" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/eef8c502-599d-48aa-b05b-51a682ac7456">
+
 The overall architecture of CGRSeg. The Rectangular Self-Calibration Module (RCM) is designed for spatial feature reconstruction and pyramid context extraction. 
 The rectangular self-calibration attention (RCA) explicitly models the rectangular region and calibrates the attention shape. The Dynamic Prototype Guided (DPG) head
 is proposed to improve the classification of the foreground objects via explicit class embedding.
@@ -13,29 +14,17 @@ is proposed to improve the classification of the foreground objects via explicit
 
 #### ADE20K
 
-| Method         | mIoU | Flops(G) | Param(M) | Throughputs(img/s) |
-|:--------------:|:----:|:--------:|:--------:|:------------------:|
-| CGRSeg-T | 43.6 | 4.0      | 9.4      | 138.4              |
-| CGRSeg-B | 45.5 | 7.6      | 18.1     | 98.4               |
-| CGRSeg-L | 48.3 | 14.9     | 35.7     | 73.0               |
+<img width="539" alt="ade20k" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/98e14385-8f41-417c-84d9-3cc6db0d32c1">
 
 COCO-Stuff-10k
 
-| Method   | mIoU | Flops(G) | Param(M) |
-|:--------:|:----:|:--------:|:--------:|
-| CGRSeg-T | 42.2 | 4.0      | 9.4      |
-| CGRSeg-B | 43.5 | 7.6      | 18.1     |
-| CGRSeg-L | 46.0 | 14.9     | 35.7     |
+<img width="491" alt="coco" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/9bf2487f-27d6-41d1-8e94-26f3fd994ce0">
 
 Pascal Context
 
-| Method   | mIoU(MS) | Flops(G) | Param(M) |
-| -------- |:--------:|:--------:|:--------:|
-| CGRSeg-T | 54.1     | 4.0      | 9.4      |
-| CGRSeg-B | 56.5     | 7.6      | 18.1     |
-| CGRSeg-L | 58.5     | 14.9     | 35.7     |
+<img width="481" alt="pc" src="https://github.com/nizhenliang/CGRSeg/assets/48742170/d0b3f524-523f-4fc3-a809-691f4617ebb4">
 
- Environment
+## Environment
 
 - ```shell
   conda create --name ssa python=3.8 -y
@@ -48,6 +37,8 @@ Pascal Context
   ```
   
   CGRSeg is built based on [mmsegmentation-0.27.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.27.0), which can be referenced for data preparation.
+
+## Training & Testing
 
 - Train
   
