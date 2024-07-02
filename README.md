@@ -1,8 +1,9 @@
-## Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
+## [ECCV 2024] Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
 
 Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
 ## 🔥 Updates
+* **2024/07/01**: The paper of CGRSeg is accepted by ECCV 2024.
 * **2024/05/10**: Codes of CGRSeg are released in [Pytorch](https://github.com/nizhenliang/CGRSeg/) and paper in [[arXiv]](https://arxiv.org/abs/2405.06228).
 
 ## 📸 Overview
