@@ -3,8 +3,8 @@ from functools import partial
 import torch
 import torch.nn as nn
 
-from ..layers import DropPath
-from ..layers.helpers import to_2tuple
+from timm.layers import DropPath
+from timm.layers.helpers import to_2tuple
 import math
 from mmcv.cnn import kaiming_init, constant_init
 
