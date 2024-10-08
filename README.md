@@ -3,6 +3,7 @@
 Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
 ## 🔥 Updates
+* **2024/10/08**: The training code is released and fixed bugs in the issue.
 * **2024/07/01**: The paper of CGRSeg is accepted by ECCV 2024.
 * **2024/05/10**: Codes of CGRSeg are released in [Pytorch](https://github.com/nizhenliang/CGRSeg/) and paper in [[arXiv]](https://arxiv.org/abs/2405.06228).
 
@@ -52,7 +53,7 @@ Pascal Context
   python train.py local_configs/cgrseg/cgrseg-t_ade20k_160k.py
   
   # Multi-gpu (4-gpu) training
-  bash dist_train.sh local_configs/cgrseg/cgrseg-t_ade20k_160k.py 4
+  sh tools/dist_train.sh local_configs/cgrseg/cgrseg-t_ade20k_160k.py 4
   ```
 
 - Test
@@ -62,7 +63,7 @@ Pascal Context
   python test.py local_configs/cgrseg/cgrseg-t_ade20k_160k.py ${CHECKPOINT_FILE} --eval mIoU
   
   # Multi-gpu (4-gpu) testing
-  bash dist_test.sh local_configs/cgrseg/cgrseg-t_ade20k_160k.py ${CHECKPOINT_FILE} 4 --eval mIoU
+  sh tools/dist_test.sh local_configs/cgrseg/cgrseg-t_ade20k_160k.py ${CHECKPOINT_FILE} 4 --eval mIoU
   ```
   
 ## ✏️ Reference
