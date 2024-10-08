@@ -4,7 +4,7 @@ from mmcv.cnn import kaiming_init, constant_init
 
 
 def last_zero_init(m):
-    if isinstance(m, nn.SequentialCell):
+    if isinstance(m, nn.Sequential):
         constant_init(m[-1], val=0)
         m[-1].inited = True
     else:
@@ -28,7 +28,7 @@ class DPGHead(nn.Module):
         else:
             self.avg_pool = nn.AdaptiveAvgPool2d(1)
         if 'channel_add' in fusions:
-            self.channel_add_conv = nn.SequentialCell(
+            self.channel_add_conv = nn.Sequential(
                 nn.Conv2d(self.inplanes, self.planes, kernel_size=1),
                 nn.LayerNorm([self.planes, 1, 1]),
                 nn.ReLU(inplace=True),
@@ -37,7 +37,7 @@ class DPGHead(nn.Module):
         else:
             self.channel_add_conv = None
         if 'channel_mul' in fusions:
-            self.channel_mul_conv = nn.SequentialCell(
+            self.channel_mul_conv = nn.Sequential(
                 nn.Conv2d(self.inplanes, self.planes, kernel_size=1),
                 nn.LayerNorm([self.planes, 1, 1]),
                 nn.ReLU(inplace=True),
