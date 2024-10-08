@@ -81,7 +81,7 @@ class Attention4D(nn.Module):
 
         if stride is not None:
             self.resolution = math.ceil(resolution / stride)
-            self.stride_conv = nn.SequentialCell(nn.Conv2d(dim, dim, kernel_size=3, stride=stride, padding=1, groups=dim),
+            self.stride_conv = nn.Sequential(nn.Conv2d(dim, dim, kernel_size=3, stride=stride, padding=1, groups=dim),
                                              nn.BatchNorm2d(dim), )
             self.upsample = nn.Upsample(scale_factor=stride, mode='bilinear')
         else:
@@ -95,20 +95,20 @@ class Attention4D(nn.Module):
         self.dh = int(attn_ratio * key_dim) * num_heads
         self.attn_ratio = attn_ratio
         h = self.dh + nh_kd * 2
-        self.q = nn.SequentialCell(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
+        self.q = nn.Sequential(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
                                nn.BatchNorm2d(self.num_heads * self.key_dim), )
-        self.k = nn.SequentialCell(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
+        self.k = nn.Sequential(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
                                nn.BatchNorm2d(self.num_heads * self.key_dim), )
-        self.v = nn.SequentialCell(nn.Conv2d(dim, self.num_heads * self.d, 1),
+        self.v = nn.Sequential(nn.Conv2d(dim, self.num_heads * self.d, 1),
                                nn.BatchNorm2d(self.num_heads * self.d),
                                )
-        self.v_local = nn.SequentialCell(nn.Conv2d(self.num_heads * self.d, self.num_heads * self.d,
+        self.v_local = nn.Sequential(nn.Conv2d(self.num_heads * self.d, self.num_heads * self.d,
                                                kernel_size=3, stride=1, padding=1, groups=self.num_heads * self.d),
                                      nn.BatchNorm2d(self.num_heads * self.d), )
         self.talking_head1 = nn.Conv2d(self.num_heads, self.num_heads, kernel_size=1, stride=1, padding=0)
         self.talking_head2 = nn.Conv2d(self.num_heads, self.num_heads, kernel_size=1, stride=1, padding=0)
 
-        self.proj = nn.SequentialCell(act_layer(),
+        self.proj = nn.Sequential(act_layer(),
                                   nn.Conv2d(self.dh, dim, 1),
                                   nn.BatchNorm2d(dim), )
 
@@ -172,7 +172,7 @@ class Attention4D(nn.Module):
 
 
 def stem(in_chs, out_chs, act_layer=nn.ReLU):
-    return nn.SequentialCell(
+    return nn.Sequential(
         nn.Conv2d(in_chs, out_chs // 2, kernel_size=3, stride=2, padding=1),
         nn.BatchNorm2d(out_chs // 2),
         act_layer(),
@@ -188,9 +188,9 @@ class LGQuery(nn.Module):
         self.resolution1 = resolution1
         self.resolution2 = resolution2
         self.pool = nn.AvgPool2d(1, 2, 0)
-        self.local = nn.SequentialCell(nn.Conv2d(in_dim, in_dim, kernel_size=3, stride=2, padding=1, groups=in_dim),
+        self.local = nn.Sequential(nn.Conv2d(in_dim, in_dim, kernel_size=3, stride=2, padding=1, groups=in_dim),
                                    )
-        self.proj = nn.SequentialCell(nn.Conv2d(in_dim, out_dim, 1),
+        self.proj = nn.Sequential(nn.Conv2d(in_dim, out_dim, 1),
                                   nn.BatchNorm2d(out_dim), )
 
     def forward(self, x):
@@ -233,16 +233,16 @@ class Attention4DDownsample(nn.Module):
         self.N = self.resolution ** 2
         self.N2 = self.resolution2 ** 2
 
-        self.k = nn.SequentialCell(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
+        self.k = nn.Sequential(nn.Conv2d(dim, self.num_heads * self.key_dim, 1),
                                nn.BatchNorm2d(self.num_heads * self.key_dim), )
-        self.v = nn.SequentialCell(nn.Conv2d(dim, self.num_heads * self.d, 1),
+        self.v = nn.Sequential(nn.Conv2d(dim, self.num_heads * self.d, 1),
                                nn.BatchNorm2d(self.num_heads * self.d),
                                )
-        self.v_local = nn.SequentialCell(nn.Conv2d(self.num_heads * self.d, self.num_heads * self.d,
+        self.v_local = nn.Sequential(nn.Conv2d(self.num_heads * self.d, self.num_heads * self.d,
                                                kernel_size=3, stride=2, padding=1, groups=self.num_heads * self.d),
                                      nn.BatchNorm2d(self.num_heads * self.d), )
 
-        self.proj = nn.SequentialCell(
+        self.proj = nn.Sequential(
             act_layer(),
             nn.Conv2d(self.dh, self.out_dim, 1),
             nn.BatchNorm2d(self.out_dim), )
@@ -312,14 +312,14 @@ class Embedding(nn.Module):
         self.asub = asub
 
         if self.light:
-            self.new_proj = nn.SequentialCell(
+            self.new_proj = nn.Sequential(
                 nn.Conv2d(in_chans, in_chans, kernel_size=3, stride=2, padding=1, groups=in_chans),
                 nn.BatchNorm2d(in_chans),
                 nn.Hardswish(),
                 nn.Conv2d(in_chans, embed_dim, kernel_size=1, stride=1, padding=0),
                 nn.BatchNorm2d(embed_dim),
             )
-            self.skip = nn.SequentialCell(
+            self.skip = nn.Sequential(
                 nn.Conv2d(in_chans, embed_dim, kernel_size=1, stride=2, padding=0),
                 nn.BatchNorm2d(embed_dim)
             )
@@ -503,7 +503,7 @@ def meta_blocks(dim, index, layers,
                 layer_scale_init_value=layer_scale_init_value,
             ))
 
-    blocks = nn.SequentialCell(*blocks)
+    blocks = nn.Sequential(*blocks)
     return blocks
 
 
