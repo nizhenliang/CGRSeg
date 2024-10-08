@@ -106,7 +106,7 @@ class CGRSeg(BaseDecodeHead):
         super(CGRSeg, self).__init__(input_transform='multiple_select', **kwargs)
         embedding_dim = self.channels
 
-        self.linear_fuse = nn.Conv2d(
+        self.linear_fuse = ConvModule(
             in_channels=embedding_dim,
             out_channels=embedding_dim,
             kernel_size=1,
