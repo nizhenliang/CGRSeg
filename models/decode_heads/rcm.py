@@ -45,7 +45,7 @@ class RCA(nn.Module):
         self.pool_w = nn.AdaptiveAvgPool2d((1, None))
 
         gc=inp//ratio
-        self.excite = nn.SequentialCell(
+        self.excite = nn.Sequential(
                 nn.Conv2d(inp, gc, kernel_size=(1, band_kernel_size), padding=(0, band_kernel_size//2), groups=gc),
                 nn.BatchNorm2d(gc),
                 nn.ReLU(inplace=True),
