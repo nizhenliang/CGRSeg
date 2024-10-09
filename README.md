@@ -1,4 +1,4 @@
-## [ECCV 2024] Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation
+## [ECCV 2024] Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation (CGRSeg)
 
 Zhenliang Ni, Xinghao Chen, Yingjie Zhai, Yehui Tang, and Yunhe Wang
 
