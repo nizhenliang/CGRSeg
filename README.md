@@ -69,10 +69,12 @@ Pascal Context
 ## ✏️ Reference
 If you find CGRSeg useful in your research or applications, please consider giving a star ⭐ and citing using the following BibTeX:
 ```
-@article{ni2024context,
-  title={Context-Guided Spatial Feature Reconstruction for Efficient Semantic Segmentation},
+@inproceedings{ni2024context,
+  title={Context-guided spatial feature reconstruction for efficient semantic segmentation},
   author={Ni, Zhenliang and Chen, Xinghao and Zhai, Yingjie and Tang, Yehui and Wang, Yunhe},
-  journal={arXiv preprint arXiv:2405.06228},
-  year={2024}
+  booktitle={European Conference on Computer Vision},
+  pages={239--255},
+  year={2024},
+  organization={Springer}
 }
 ```
